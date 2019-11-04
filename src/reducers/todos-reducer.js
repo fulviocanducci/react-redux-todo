@@ -1,9 +1,9 @@
-import { AddItem } from '../constants';
+import { Add_Item } from '../constants';
 
 function todosReducer(state = { items: [] }, { type, payload }) {
     switch(type){
-        case AddItem: {
-            return { items: [...items, payload] };
+        case Add_Item: {
+            return { items: [...state.items, payload] };
         }
         default:
             return state;

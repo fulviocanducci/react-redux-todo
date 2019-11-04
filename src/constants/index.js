@@ -1,2 +1,2 @@
-export const AddItem = 'add-item';
-export const DelItem = 'del-item';
+export const Add_Item = 'add-item';
+export const Del_Item = 'del-item';
