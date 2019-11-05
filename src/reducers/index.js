@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import todosReducer from './todos-reducer';
+import counterReducer from './counter-reducer';
 
 const reducer = combineReducers({
-    todos: todosReducer
+    todos: todosReducer,
+    counter: counterReducer
 });
 
 export default reducer;

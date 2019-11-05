@@ -1,14 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { AddItem } from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Todos({todos, AddItem}) {    
+function Todos() {    
+    const todos = useSelector(state => state.todos.items);
+    const handleDispatchAddItem = useDispatch();
+    const item = {
+        type: 'Add',
+        payload: {id: Math.random(), name: Math.random(), done: false}
+    };
     return (
         <>
             <div>
                 Todos
-                <button onClick={e => AddItem({id: Math.random(), name: Math.random()})}>Adicionar</button>
+                <button onClick={x => handleDispatchAddItem(item)}>Adicionar</button>
             </div>
             <div>
                 {
@@ -23,19 +27,4 @@ function Todos({todos, AddItem}) {
     )
 }
 
-function mapStateToProps(state) {
-    return { 
-        todos: state.todos.items
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        AddItem
-    }, dispatch)
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Todos);
+export default Todos;
