@@ -1,6 +1,6 @@
-function todosReducer(state = { items: [] }, {type, payload}) {    
-  switch(type){
-    case 'Add': {
+function todosReducer(state = { items: [] }, { type, payload }) {
+  switch (type) {
+    case "Add": {
       return { items: [...state.items, payload] };
     }
     default: {
